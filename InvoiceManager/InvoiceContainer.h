@@ -1,8 +1,7 @@
 #include <string>
 using namespace std;
 
-class InvoiceItem
-{
+class InvoiceItem {
 private:
 	string invoiceNumber;
 	string name;
@@ -20,17 +19,16 @@ public:
 	double GetPrice();
 	bool SetCost(double cost);
 	double GetCost();
-		
+	string* GetDetails();//возвращает массив данных о текущей накладной
 	InvoiceItem* Next;
 };
 
 
-class InvoiceContainer
-{
+class InvoiceContainer {
 private:
 	InvoiceItem* lastItem;
 	InvoiceItem* getItem(int index, InvoiceItem* current);
-	int count;
+	int count;//переменная, отвечающая за количество элементов в контейнере
 public:
 	InvoiceContainer();
 	int GetCount();
@@ -38,7 +36,7 @@ public:
 	void Add(InvoiceItem* item);
 	void Remove(InvoiceItem* item);
 	void Clear();
-	void Show();//выводит элементы контейнера
+	void Print(string fileName);//выводит элементы контейнера
 };
 
 

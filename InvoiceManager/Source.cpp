@@ -16,6 +16,7 @@ void main()
 	ic.Add(i3);
 	ic.Add(i4);
 	ic.Add(i5);
+	ic.Print("");
 	ic.Clear();
 
 

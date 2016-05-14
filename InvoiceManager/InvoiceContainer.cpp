@@ -1,5 +1,9 @@
 #include "InvoiceContainer.h"
+#include <iostream>
+#include <string>
+using namespace std;
 #define NULL 0
+const int LENGTH_OF_INVOICE_DETAILS = 5;
 
 InvoiceItem * InvoiceContainer::getItem(int index, InvoiceItem * current)
 {
@@ -7,7 +11,6 @@ InvoiceItem * InvoiceContainer::getItem(int index, InvoiceItem * current)
 		getItem(index - 1, current->Next);
 	else
 		return current;
-
 }
 
 InvoiceContainer::InvoiceContainer()//конструктор по умолчанию
@@ -94,6 +97,25 @@ void InvoiceContainer::Clear()
 	}
 }
 
+void InvoiceContainer::Print(string fileName)
+{
+	if (fileName == "")
+	{
+		cout << "*** HEADER ***" << endl;
+		for (int i = 0; i < count; i++)//проходим по каждому элементу контейнера(по каждой накладной)
+		{
+			InvoiceItem item = *GetItem(i);
+			string* details = item.GetDetails();
+			for (int strNum = 0; strNum < LENGTH_OF_INVOICE_DETAILS; strNum++)   //проходимся по каждой строке информации конкретной накладной
+			{
+				cout << details[strNum] << endl;//вывод конкретной строки с информацией
+			}
+
+			cout << "============================" << endl;
+		}
+	}
+}
+
 
 bool InvoiceItem::SetInvoiceNumber(string invoiceNumber)
 {
@@ -164,4 +186,20 @@ double InvoiceItem::GetCost()
 {
 	return cost;
 }
+
+string * InvoiceItem::GetDetails()
+{
+	string* details = new string[LENGTH_OF_INVOICE_DETAILS]//для избежания ошибок объект лучше всего создавать в куче
+	{
+		"Number: " + invoiceNumber,
+		"Name: " + name,
+		"Quantity of goods: " + to_string(quantity),
+		"Price of product: " + to_string(price),
+		"Cost of product: " + to_string(cost)
+	};
+
+	return details;
+}
+
+
 
