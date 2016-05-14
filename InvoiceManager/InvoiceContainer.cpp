@@ -97,11 +97,71 @@ void InvoiceContainer::Clear()
 
 bool InvoiceItem::SetInvoiceNumber(string invoiceNumber)
 {
-	return false;
+	if(invoiceNumber.length() != 13)
+		return false;
+	
+	this->invoiceNumber = invoiceNumber;
+	return true;
 }
 
 string InvoiceItem::GetInvoiceNumber()
 {
-	return string();
+	return invoiceNumber;
+}
+
+bool InvoiceItem::SetName(string name)
+{
+	if(name.length()<2 || name.length() > 50)
+		return false;
+	
+	this->name = name;
+	return true;
+}
+
+string InvoiceItem::GetName()
+{
+	return name;
+}
+
+bool InvoiceItem::SetQuantity(double quantity)
+{
+	if(quantity <= 0)
+		return false;
+	
+	this->quantity = quantity;
+	return true;
+}
+
+double InvoiceItem::GetQuantity()
+{
+	return quantity;
+}
+
+bool InvoiceItem::SetPrice(double price)
+{
+	if (price <= 0)
+		return false;
+
+	this->price = price;
+	return true;
+}
+
+double InvoiceItem::GetPrice()
+{
+	return price;
+}
+
+bool InvoiceItem::SetCost(double cost)
+{
+	if(cost <= 0)
+		return false;
+
+	this->cost = cost;
+	return true;
+}
+
+double InvoiceItem::GetCost()
+{
+	return cost;
 }
 
