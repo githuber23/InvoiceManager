@@ -1,4 +1,7 @@
-﻿  InvoiceContainer.cpp
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\invoicecontainer.cpp(14): warning C4715: InvoiceContainer::getItem: значение возвращается не при всех путях выполнения
+﻿  Source.cpp
+  InvoiceContainer.cpp
+c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\invoicecontainer.cpp(62): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
+c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\invoicecontainer.cpp(17): warning C4715: InvoiceContainer::getItem: значение возвращается не при всех путях выполнения
   InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.exe
   InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.pdb (Partial PDB)

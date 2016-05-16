@@ -28,6 +28,11 @@ class InvoiceContainer {
 private:
 	InvoiceItem* lastItem;
 	InvoiceItem* getItem(int index, InvoiceItem* current);
+	void printToConsole();
+	void printToFile(string fileName);
+	int  getTotalCost();//стоимость всех чеков в нашей накладной
+	string getFooter();//получаем футер
+	string getHeader();//получаем хедер
 	int count;//переменная, отвечающая за количество элементов в контейнере
 public:
 	InvoiceContainer();

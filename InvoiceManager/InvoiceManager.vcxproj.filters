@@ -18,7 +18,7 @@
     <ClInclude Include="InvoiceContainer.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="InvoiceManager.h">
+    <ClInclude Include="InvoiceService.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClCompile Include="Source.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="InvoiceManager.cpp">
+    <ClCompile Include="InvoiceService.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

@@ -111,11 +111,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="InvoiceContainer.h" />
-    <ClInclude Include="InvoiceManager.h" />
+    <ClInclude Include="InvoiceService.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="InvoiceContainer.cpp" />
-    <ClCompile Include="InvoiceManager.cpp" />
+    <ClCompile Include="InvoiceService.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
