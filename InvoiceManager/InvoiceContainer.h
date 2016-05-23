@@ -35,6 +35,9 @@ private:
 	string getHeader();//получаем хедер
 	int count;//переменная, отвечающая за количество элементов в контейнере
 public:
+	const string HEADER = "Total count of cheks: ";
+	const string FOOTER_1 = "Total cost: ";//по возможности -исправить!(не должно быть двух переменных, отвечающих за футер)
+	const string FOOTER_2 = "; Total count of rows: ";//по возможности -исправить!
 	InvoiceContainer();
 	int GetCount();
 	InvoiceItem* GetItem(int index);

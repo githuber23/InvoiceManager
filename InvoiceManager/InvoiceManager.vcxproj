@@ -110,12 +110,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Builder.h" />
     <ClInclude Include="InvoiceContainer.h" />
     <ClInclude Include="InvoiceService.h" />
+    <ClInclude Include="Lexer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="InvoiceContainer.cpp" />
     <ClCompile Include="InvoiceService.cpp" />
+    <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -67,12 +67,12 @@ int InvoiceContainer::getTotalCost()//считаем общую суму всех себестоимостей
 string InvoiceContainer::getFooter()
 {
 	int countOfStrings = HEADER_AND_FOOTER_COUNT + LENGTH_OF_INVOICE_DETAILS*count; //получаем количество строк в файле
-	return "Total cost: " + to_string(getTotalCost()) + ". Total count of rows: " + to_string(countOfStrings);
+	return FOOTER_1 + to_string(getTotalCost()) + FOOTER_2 + to_string(countOfStrings);
 }
 
 string InvoiceContainer::getHeader()
 {
-	return "Total count of cheks: " + to_string(count);
+	return HEADER + to_string(count);
 }
 
 InvoiceContainer::InvoiceContainer()//конструктор по умолчанию
