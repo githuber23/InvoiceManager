@@ -6,5 +6,5 @@ private:
 	InvoiceContainer* invoiceContainer;
 public:
 	Lexer();
-	bool IsTitlesExist(ifstream* stream);
+	bool IsTitlesExist(string* text, int size);
 };

@@ -3,11 +3,11 @@
 using namespace std;
 
 
-int findIndexOfCharInString(char* str, char symbol)//находит индекс символа в строке
+int findIndexOfCharInString(string s, char symbol)//находит индекс символа в строке
 {
-	for (int i = 0; i < strlen(str); i++)
+	for (int i = 0; i < s.length(); i++)
 	{
-		if (str[i] == symbol)
+		if (s[i] == symbol)
 			return i;
 	}
 
@@ -62,38 +62,35 @@ Lexer::Lexer()
 	invoiceContainer = new InvoiceContainer();
 }
 
-bool Lexer::IsTitlesExist(ifstream* stream)
+bool Lexer::IsTitlesExist(string* text, int size)
 {
-	char* title = new char[2047];// массив символов отвечающий за хедер и футер вместе
-	if (stream->eof())
+	if (size <= 1)
 		return false;
+
+
 	//»щем header
-	stream->getline(title, 2047);//функци€ считки, котора€ принимает два параметра: массив, в который считывает
+	string title = text[0];
 	//и максимальное количество символов дл€ считки(метод €зыка C, который содержитс€ в string)
-	if (!isTitle(title, invoiceContainer->HEADER.c_str()))//"если наша строка не содержит второй аргумент и интовое число то это не заголовок"
+	if (!isTitle(title.c_str(), invoiceContainer->HEADER.c_str()))//"если наша строка не содержит второй аргумент и интовое число то это не заголовок"
 		return false;
 	// »щем footer
 
-	while (!stream->eof())
-	{
-		stream->getline(title, 2047);
-	}
-
-	char* totalCost = new char[2047];
+	title = text[size - 1];//провер€ем наличие тайтла дл€ последней строки
 
 	//dividerPosition- указывает позицию точки с зап€той, до которой должна быть считана часть футера
 	int dividerPosition = findIndexOfCharInString(title, ';');
 	if (dividerPosition == -1)
 		return false;
 
-	stringCopy(title, totalCost, dividerPosition);
+	char* totalCost = new char[2047];
+	strncpy(totalCost, title.c_str(), dividerPosition);
 	//≈сли введенный нами тайтл не €вл€етс€ FOOTER_1, то возвращаем false
 	if (!isTitle(totalCost, invoiceContainer->FOOTER_1.c_str())) //total cost - это первый футер
 		return false;
 
 	//перемещаем указатель на начало FOOTER_2, чтобы работать с ним.
 	title += dividerPosition;
-	if (!isTitle(title, invoiceContainer->FOOTER_2.c_str()))
+	if (!isTitle(title.c_str(), invoiceContainer->FOOTER_2.c_str()))
 		return false;
 
 	return true;
