@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 #include "Lexer.h"
 using namespace std;
@@ -23,8 +24,47 @@ void main()
 	//ic.Clear();
 
 	Lexer l;
-	ifstream* stream = new ifstream("file.txt");
-	cout << l.IsTitlesExist(stream);
+	//ifstream* stream = new ifstream("file.txt");
+	//int count = 0;
+	//char* temp = new char[2047];
+	//while (!stream->eof())
+	//{
+	//	stream->getline(temp,2047);
+	//	count++;
+	//}
+
+	//stream = new ifstream("file.txt");
+	//string* text = new string[count];
+	//for (int i = 0; i < count; i++)
+	//{
+	//	getline(*stream, text[i]);
+	//}
+
+	string* text1 = new string[1]
+	{
+		"Total cost: 100; Total count of rows: 27"
+	};
+	string* text2 = new string[2]
+	{
+		"Total count of cheks: 5",
+		"Total cost: 100; Total count of rows: 27"
+	};
+	string* text3 = new string[2]
+	{
+		"Total count of 12cheks : 5",
+		"Total cost: 100; Total count of rows: 27"
+	};
+
+	string* text4 = new string[2]
+	{
+		"Total count of cheks: 5",
+		"Total cost: 100; Total count of rows: 27"
+	};
+
+	cout << l.IsTitlesExist(text1, 1);//второй параметр- количество строк
+	cout << l.IsTitlesExist(text2, 2);
+	cout << l.IsTitlesExist(text3, 2);
+	cout << l.IsTitlesExist(text4, 2);
 
 
 

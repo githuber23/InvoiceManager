@@ -1,6 +1,3 @@
-﻿  Lexer.cpp
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\lexer.cpp(8): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\lexer.cpp(23): warning C4018: >: несоответствие типов со знаком и без знака
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\lexer.cpp(32): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  Source.cpp
   InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.exe
   InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.pdb (Partial PDB)

@@ -1,3 +1,5 @@
+#define D_SCL_SECURE_NO_WARNINGS
+#define _SCL_SECURE_NO_WARNINGS
 #include "Lexer.h"
 #include <string>
 using namespace std;
@@ -83,14 +85,17 @@ bool Lexer::IsTitlesExist(string* text, int size)
 		return false;
 
 	char* totalCost = new char[2047];
-	strncpy(totalCost, title.c_str(), dividerPosition);
+	char* totalCountOfRows = new char[2047];
+	title.copy(totalCost, dividerPosition);
+	totalCost[dividerPosition] = '\0';
 	//≈сли введенный нами тайтл не €вл€етс€ FOOTER_1, то возвращаем false
 	if (!isTitle(totalCost, invoiceContainer->FOOTER_1.c_str())) //total cost - это первый футер
 		return false;
 
 	//перемещаем указатель на начало FOOTER_2, чтобы работать с ним.
-	title += dividerPosition;
-	if (!isTitle(title.c_str(), invoiceContainer->FOOTER_2.c_str()))
+	title.copy(totalCountOfRows, title.length() - dividerPosition, dividerPosition);
+	totalCountOfRows[title.length() - dividerPosition] = '\0';
+	if (!isTitle(totalCountOfRows, invoiceContainer->FOOTER_2.c_str()))
 		return false;
 
 	return true;
