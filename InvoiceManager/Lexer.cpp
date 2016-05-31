@@ -61,45 +61,44 @@ bool isTitle(const char* title, const char* templ)//templ- константы, объявленны
 
 Lexer::Lexer()
 {
-	invoiceContainer = new InvoiceContainer();
 }
-
-bool Lexer::IsTitlesExist(string* text, int size)
-{
-	if (size <= 1)
-		return false;
-
-
-	//Ищем header
-	string title = text[0];
-	//и максимальное количество символов для считки(метод языка C, который содержится в string)
-	if (!isTitle(title.c_str(), invoiceContainer->HEADER.c_str()))//"если наша строка не содержит второй аргумент и интовое число то это не заголовок"
-		return false;
-	// Ищем footer
-
-	title = text[size - 1];//проверяем наличие тайтла для последней строки
-
-	//dividerPosition- указывает позицию точки с запятой, до которой должна быть считана часть футера
-	int dividerPosition = findIndexOfCharInString(title, ';');
-	if (dividerPosition == -1)
-		return false;
-
-	char* totalCost = new char[2047];
-	char* totalCountOfRows = new char[2047];
-	title.copy(totalCost, dividerPosition);
-	totalCost[dividerPosition] = '\0';
-	//Если введенный нами тайтл не является FOOTER_1, то возвращаем false
-	if (!isTitle(totalCost, invoiceContainer->FOOTER_1.c_str())) //total cost - это первый футер
-		return false;
-
-	//перемещаем указатель на начало FOOTER_2, чтобы работать с ним.
-	title.copy(totalCountOfRows, title.length() - dividerPosition, dividerPosition);
-	totalCountOfRows[title.length() - dividerPosition] = '\0';
-	if (!isTitle(totalCountOfRows, invoiceContainer->FOOTER_2.c_str()))
-		return false;
-
-	return true;
-}
+//
+//bool Lexer::IsTitlesExist(string* text, int size)
+//{
+//	if (size <= 1)
+//		return false;
+//
+//
+//	//Ищем header
+//	string title = text[0];
+//	//и максимальное количество символов для считки(метод языка C, который содержится в string)
+//	if (!isTitle(title.c_str(), invoiceContainer->HEADER.c_str()))//"если наша строка не содержит второй аргумент и интовое число то это не заголовок"
+//		return false;
+//	// Ищем footer
+//
+//	title = text[size - 1];//проверяем наличие тайтла для последней строки
+//
+//	//dividerPosition- указывает позицию точки с запятой, до которой должна быть считана часть футера
+//	int dividerPosition = findIndexOfCharInString(title, ';');
+//	if (dividerPosition == -1)
+//		return false;
+//
+//	char* totalCost = new char[2047];
+//	char* totalCountOfRows = new char[2047];
+//	title.copy(totalCost, dividerPosition);
+//	totalCost[dividerPosition] = '\0';
+//	//Если введенный нами тайтл не является FOOTER_1, то возвращаем false
+//	if (!isTitle(totalCost, invoiceContainer->FOOTER_1.c_str())) //total cost - это первый футер
+//		return false;
+//
+//	//перемещаем указатель на начало FOOTER_2, чтобы работать с ним.
+//	title.copy(totalCountOfRows, title.length() - dividerPosition, dividerPosition);
+//	totalCountOfRows[title.length() - dividerPosition] = '\0';
+//	if (!isTitle(totalCountOfRows, invoiceContainer->FOOTER_2.c_str()))
+//		return false;
+//
+//	return true;
+//}
 
 
 

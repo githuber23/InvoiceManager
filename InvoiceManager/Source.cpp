@@ -1,13 +1,18 @@
 #include <iostream>
 #include <string>
-#include <fstream>
-#include "Lexer.h"
+//#include <fstream>
+//#include "Lexer.h"
+#include "InvoiceContainer.h"
 using namespace std;
 
 void main()
 {
-	//InvoiceContainer ic;
+	InvoiceContainer* ic = new InvoiceContainer();
+	ic->push("123", "Item1", 1, 1, 1);
+	ic->push("123", "Item2", 1, 1, 1);
+	ic->print(ic->begin(), ic->end());
 	//InvoiceItem* i1 = new InvoiceItem();//new - размещение объекта в куче.
+
 	//InvoiceItem* i2 = new InvoiceItem();
 	//InvoiceItem* i3 = new InvoiceItem();
 	//InvoiceItem* i4 = new InvoiceItem();
@@ -23,7 +28,7 @@ void main()
 	//ic.Print("");
 	//ic.Clear();
 
-	Lexer l;
+	//Lexer l;
 	//ifstream* stream = new ifstream("file.txt");
 	//int count = 0;
 	//char* temp = new char[2047];
@@ -40,31 +45,31 @@ void main()
 	//	getline(*stream, text[i]);
 	//}
 
-	string* text1 = new string[1]
-	{
-		"Total cost: 100; Total count of rows: 27"
-	};
-	string* text2 = new string[2]
-	{
-		"Total count of cheks: 5",
-		"Total cost: 100; Total count of rows: 27"
-	};
-	string* text3 = new string[2]
-	{
-		"Total count of 12cheks : 5",
-		"Total cost: 100; Total count of rows: 27"
-	};
+	//string* text1 = new string[1]
+	//{
+	//	"Total cost: 100; Total count of rows: 27"
+	//};
+	//string* text2 = new string[2]
+	//{
+	//	"Total count of cheks: 5",
+	//	"Total cost: 100; Total count of rows: 27"
+	//};
+	//string* text3 = new string[2]
+	//{
+	//	"Total count of 12cheks : 5",
+	//	"Total cost: 100; Total count of rows: 27"
+	//};
 
-	string* text4 = new string[2]
-	{
-		"Total count of cheks: 5",
-		"Total cost: 100; Total count of rows: 27"
-	};
+	//string* text4 = new string[2]
+	//{
+	//	"Total count of cheks: 5",
+	//	"Total cost: 100; Total count of rows: 27"
+	//};
 
-	cout << l.IsTitlesExist(text1, 1);//второй параметр- количество строк
-	cout << l.IsTitlesExist(text2, 2);
-	cout << l.IsTitlesExist(text3, 2);
-	cout << l.IsTitlesExist(text4, 2);
+	//cout << l.IsTitlesExist(text1, 1);//второй параметр- количество строк
+	//cout << l.IsTitlesExist(text2, 2);
+	//cout << l.IsTitlesExist(text3, 2);
+	//cout << l.IsTitlesExist(text4, 2);
 
 
 

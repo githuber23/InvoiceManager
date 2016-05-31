@@ -1,3 +1,10 @@
 ﻿  Source.cpp
-  InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.exe
-  InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.pdb (Partial PDB)
+  Lexer.cpp
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(10): warning C4018: '<': signed/unsigned mismatch
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(25): warning C4018: '>': signed/unsigned mismatch
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(34): warning C4018: '<': signed/unsigned mismatch
+  InvoiceService.cpp
+  InvoiceContainer.cpp
+  Builder.cpp
+  Generating Code...
+  InvoiceManager.vcxproj -> C:\Users\ivanv\Desktop\InvoiceManager\Debug\InvoiceManager.exe
