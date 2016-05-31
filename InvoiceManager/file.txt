@@ -1,33 +1,3 @@
-Total count of cheks: 5
-
-Number: 
-Name: 
-Quantity of goods: 0.000000
-Price of product: 0.000000
-Cost of product: 0.000000
-============================
-Number: 
-Name: 
-Quantity of goods: 0.000000
-Price of product: 0.000000
-Cost of product: 0.000000
-============================
-Number: 
-Name: 
-Quantity of goods: 0.000000
-Price of product: 0.000000
-Cost of product: 0.000000
-============================
-Number: 
-Name: 
-Quantity of goods: 0.000000
-Price of product: 0.000000
-Cost of product: 0.000000
-============================
-Number: 
-Name: 
-Quantity of goods: 0.000000
-Price of product: 0.000000
-Cost of product: 100.000000
-============================
-Total cost: 100; Total count of rows: 27
+Total count of cheks: 5;
+Number: 123; Name: asd; Quantity of goods: 0.000000; Price of product: 0.000000; Cost of product: 0.000000;
+Total cost: 100; Total count of rows: 27;

@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
-//#include <fstream>
-//#include "Lexer.h"
+#include <fstream>
+#include "Lexer.h"
 #include "InvoiceContainer.h"
 using namespace std;
 
 void main()
 {
-	InvoiceContainer* ic = new InvoiceContainer();
-	ic->push("123", "Item1", 1, 1, 1);
-	ic->push("123", "Item2", 1, 1, 1);
-	ic->print(ic->begin(), ic->end());
+	//InvoiceContainer* ic = new InvoiceContainer();
+	//ic->push("123", "Item1", 1, 1, 1);
+	//ic->push("123", "Item2", 1, 1, 1);
+	//ic->print(ic->begin(), ic->end());
 	//InvoiceItem* i1 = new InvoiceItem();//new - размещение объекта в куче.
 
 	//InvoiceItem* i2 = new InvoiceItem();
@@ -28,15 +28,19 @@ void main()
 	//ic.Print("");
 	//ic.Clear();
 
-	//Lexer l;
-	//ifstream* stream = new ifstream("file.txt");
-	//int count = 0;
-	//char* temp = new char[2047];
-	//while (!stream->eof())
-	//{
-	//	stream->getline(temp,2047);
-	//	count++;
-	//}
+	Lexer l;
+	ifstream* stream = new ifstream("file.txt");
+	int count = 0;
+	char* temp = new char[2047];
+	while (!stream->eof())
+	{
+		stream->getline(temp,2047);
+		string* s = new string(temp);
+		string* lexems = new string[10];
+		int* countOfLexems = NULL;
+		l.GetLexems(*s, lexems, countOfLexems);
+		count++;
+	}
 
 	//stream = new ifstream("file.txt");
 	//string* text = new string[count];

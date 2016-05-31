@@ -1,8 +1,6 @@
 ﻿  Source.cpp
   Lexer.cpp
-c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(25): warning C4018: '>': signed/unsigned mismatch
-c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(34): warning C4018: '<': signed/unsigned mismatch
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(10): warning C4101: 'divider': unreferenced local variable
   InvoiceService.cpp
   InvoiceContainer.cpp
   Builder.cpp
