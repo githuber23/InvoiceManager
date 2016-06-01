@@ -37,8 +37,11 @@ void main()
 		stream->getline(temp,2047);
 		string* s = new string(temp);
 		string* lexems = new string[10];
-		int* countOfLexems = NULL;
-		l.GetLexems(*s, lexems, countOfLexems);
+		int countOfLexems;
+		l.GetLexems(*s, lexems, &countOfLexems);
+		for (int i = 0; i < countOfLexems; i++)
+			cout << lexems[i] << endl;
+
 		count++;
 	}
 
