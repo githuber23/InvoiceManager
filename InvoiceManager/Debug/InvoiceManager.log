@@ -1,8 +1,14 @@
 ﻿  Source.cpp
   Lexer.cpp
-c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(11): warning C4101: 'divider': unreferenced local variable
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(10): warning C4101: 'divider': unreferenced local variable
   InvoiceService.cpp
   InvoiceContainer.cpp
   Builder.cpp
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(34): warning C4101: 'ia': unreferenced local variable
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(84): warning C4101: 'ia': unreferenced local variable
   Generating Code...
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(88): warning C4715: 'isDouble': not all control paths return a value
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(131): warning C4715: 'Builder::checkNote': not all control paths return a value
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(39): warning C4715: 'isInt': not all control paths return a value
   InvoiceManager.vcxproj -> C:\Users\ivanv\Desktop\InvoiceManager\Debug\InvoiceManager.exe

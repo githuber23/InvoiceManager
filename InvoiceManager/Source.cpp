@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
-#include <fstream>
-#include "Lexer.h"
-#include "InvoiceContainer.h"
+#include "Builder.h"
 using namespace std;
 
 void main()
 {
+	Builder b;
+	b.ReadFile("file.txt");
+
 	//InvoiceContainer* ic = new InvoiceContainer();
 	//ic->push("123", "Item1", 1, 1, 1);
 	//ic->push("123", "Item2", 1, 1, 1);
@@ -28,22 +29,7 @@ void main()
 	//ic.Print("");
 	//ic.Clear();
 
-	Lexer l;
-	ifstream* stream = new ifstream("file.txt");
-	int count = 0;
-	char* temp = new char[2047];
-	while (!stream->eof())
-	{
-		stream->getline(temp,2047);
-		string* s = new string(temp);
-		string* lexems = new string[10];
-		int countOfLexems;
-		l.GetLexems(*s, lexems, &countOfLexems);
-		for (int i = 0; i < countOfLexems; i++)
-			cout << lexems[i] << endl;
-
-		count++;
-	}
+	
 
 	//stream = new ifstream("file.txt");
 	//string* text = new string[count];
