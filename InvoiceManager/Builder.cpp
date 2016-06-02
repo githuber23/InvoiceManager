@@ -15,7 +15,7 @@ const string TOTAL_COST = "Total cost";
 const string TOTAL_COUNT_OF_ROWS = "Total count of rows";
 const int LENGTH_OF_INVOICE_NUMBER = 13;
 
-bool isInt(string value)
+bool Builder::isInt(string value)
 {
 	try
 	{
@@ -38,7 +38,7 @@ bool isInt(string value)
 	}
 }
 
-bool isNumberOfInvoice(string value)
+bool Builder::isNumberOfInvoice(string value)
 {
 	if (value.length() != LENGTH_OF_INVOICE_NUMBER)
 		return false;
@@ -54,7 +54,7 @@ bool isNumberOfInvoice(string value)
 	return true;
 }
 
-bool isDouble(string value, int countOfNumberAfterDot, bool fixed)
+bool Builder::isDouble(string value, int countOfNumberAfterDot, bool fixed)
 {
 	try
 	{
