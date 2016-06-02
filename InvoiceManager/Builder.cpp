@@ -1,19 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include "Builder.h"
+#include "Constants.h"
 using namespace std;
 
-// Header
-const string HEADER = "Total count of cheks";
-// Body
-const string NUMBER_OF_INVOICE = "Number";
-const string QUANTITY = "Quantity of goods";
-const string PRICE = "Price of product";
-const string COST = "Cost of product";
-// Footer
-const string TOTAL_COST = "Total cost";
-const string TOTAL_COUNT_OF_ROWS = "Total count of rows";
-const int LENGTH_OF_INVOICE_NUMBER = 13;
+
 
 bool Builder::isInt(string value)
 {
@@ -87,42 +78,45 @@ bool Builder::isDouble(string value, int countOfNumberAfterDot, bool fixed)
 	}
 }
 
-bool Builder::checkNote(string title, string value)//ПРоверяем записи на соответсвие БНФ
+void Builder::checkNote(string title, string value, string* error)//ПРоверяем записи на соответсвие БНФ
 {
+	bool isCorrect = false;//благодаря тому, что значение false - мы можем не писать else в нижних ифах
+
 	if (title == HEADER || title == TOTAL_COUNT_OF_ROWS)
 	{
 		if (isInt(value))
-			return true;
-		
-		return false;
+			isCorrect = true;//ошибки не будет, если всё правильно
+	}
+	else if (title == NAME_OF_INVOICE)
+	{
+		if (value.length() > 0)
+			isCorrect = true;
 	}
 	else if (title == NUMBER_OF_INVOICE)
 	{
 		if (isNumberOfInvoice(value))
-			return true;
-
-		return false;
+			isCorrect = true;
 	}
 	else if (title == QUANTITY)
 	{
 		// принимаем 2 и меньше знаков после запятой
 		// false - может быть меньше чем 2 знака (не фиксированное кол-во знаков после запятой, но меньше либо равно 2)
 		if (isDouble(value, 2, false))
-			return true;
-
-		return false;
+			isCorrect = true;
 	}
 	else if (title == PRICE || title == COST || title == TOTAL_COST)
 	{
 		if(isDouble(value, 2,true))
-			return true;
-
-		return false;
+			isCorrect = true;
 	}
 	else
 	{
-		return false;
+		*error = "Semantic error. For '" + title + "' title is wrong";
+		return;
 	}
+
+	if (!isCorrect)
+		*error = "Syntax error. For '" + title + "' value '" + value + "' is wrong";
 }
 
 Builder::Builder()
@@ -138,21 +132,26 @@ void Builder::ReadFile(string fileName)
 	char* temp = new char[2047];
 	while (!stream->eof())
 	{
+		count++;
 		stream->getline(temp, 2047);
+		if (!strcmp(temp, ""))//игнорируем пустые строки
+			continue;
+
 		string* s = new string(temp);
 		string* lexems = new string[10];
 		int countOfLexems;
 		lexer->GetLexems(*s, lexems, &countOfLexems);
-		for (int i = 0; i < countOfLexems; i++)
-		{
-			cout << lexems[i] << endl;
-		}
 
 		for (int i = 0; i < countOfLexems; i+=2)
 		{
-			checkNote(lexems[i], lexems[i + 1]);
+			string error = "";
+			checkNote(lexems[i], lexems[i + 1], &error);
+			if (error != "")
+			{
+				cout << error << endl;
+				cout << "Error is situated on " << count << " row" << endl;
+				return;
+			}
 		}
-
-		count++;
 	}
 }

@@ -111,6 +111,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="InvoiceContainer.h" />
     <ClInclude Include="InvoiceService.h" />
     <ClInclude Include="Lexer.h" />
