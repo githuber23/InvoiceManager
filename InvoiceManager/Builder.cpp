@@ -59,7 +59,7 @@ bool Builder::isDouble(string value, int countOfNumberAfterDot, bool fixed)
 			return false;
 		}
 
-		int expectedCountOfNumberAfterDot = value.length() - dot-1;
+		int expectedCountOfNumberAfterDot = value.length() - dot - 1;
 		// фиксированное число цифр после запятой
 		if (fixed)
 		{
@@ -77,6 +77,8 @@ bool Builder::isDouble(string value, int countOfNumberAfterDot, bool fixed)
 		return false;
 	}
 }
+
+
 
 void Builder::checkNote(string title, string value, string* error)//ПРоверяем записи на соответсвие БНФ
 {
@@ -106,7 +108,7 @@ void Builder::checkNote(string title, string value, string* error)//ПРоверяем за
 	}
 	else if (title == PRICE || title == COST || title == TOTAL_COST)
 	{
-		if(isDouble(value, 2,true))
+		if (isDouble(value, 2, true))
 			isCorrect = true;
 	}
 	else
@@ -119,10 +121,29 @@ void Builder::checkNote(string title, string value, string* error)//ПРоверяем за
 		*error = "Syntax error. For '" + title + "' value '" + value + "' is wrong";
 }
 
+bool Builder::isWhiteSymbolsString(string s)
+{
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] != ' ')
+			return false;
+	}
+
+	return true;
+}
+
 Builder::Builder()
 {
 	invoiceContainer = new InvoiceContainer();
 	lexer = new Lexer();
+}
+
+
+
+void Builder::Print(string path)
+{
+
+		invoiceContainer->print(path);
 }
 
 void Builder::ReadFile(string fileName)
@@ -134,15 +155,21 @@ void Builder::ReadFile(string fileName)
 	{
 		count++;
 		stream->getline(temp, 2047);
-		if (!strcmp(temp, ""))//игнорируем пустые строки
+		if (!strcmp(temp, "") || isWhiteSymbolsString(temp))//игнорируем пустые строки
 			continue;
 
 		string* s = new string(temp);
 		string* lexems = new string[10];
 		int countOfLexems;
 		lexer->GetLexems(*s, lexems, &countOfLexems);
+		bool isInvoice = true;
+		string number = "";
+		string name = "";
+		double quantity;
+		double price;
+		double cost;
 
-		for (int i = 0; i < countOfLexems; i+=2)
+		for (int i = 0; i < countOfLexems; i += 2)
 		{
 			string error = "";
 			checkNote(lexems[i], lexems[i + 1], &error);
@@ -150,8 +177,34 @@ void Builder::ReadFile(string fileName)
 			{
 				cout << error << endl;
 				cout << "Error is situated on " << count << " row" << endl;
-				return;
+				system("pause");
+				exit(0);
 			}
+			//ЕСЛИ ДАННЫЕ В ФАЙЛЕ ПРОШЛИ ВСЕ ПРОВЕРКИ
+			else
+			{
+				if (lexems[i] == HEADER || lexems[i] == TOTAL_COST || lexems[i] == TOTAL_COUNT_OF_ROWS)//случай, когда проверяем хедер или футер(он не должен быть в контейнере)
+				{
+					isInvoice = false;
+					continue;
+				}
+				//присваиваем значения нашим параметрам(і - название; і+1 - значение)
+				if (lexems[i] == NUMBER_OF_INVOICE)
+					number = lexems[i + 1];
+				else if (lexems[i] == NAME_OF_INVOICE)
+					name = lexems[i + 1];
+				else if (lexems[i] == QUANTITY)
+					quantity = stod(lexems[i + 1]);
+				else if (lexems[i] == PRICE)
+					price = stod(lexems[i + 1]);
+				else if (lexems[i] == COST)
+					cost = stod(lexems[i + 1]);
+			}
+		}
+
+		if (isInvoice)//Если с накладной всё нормально- заполняем контейнер
+		{
+			invoiceContainer->push(number, name, quantity, price, cost);
 		}
 	}
 }

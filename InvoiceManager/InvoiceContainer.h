@@ -101,5 +101,5 @@ public:
 	Iterator begin() const;
 	Iterator end() const;
 	void print(const Iterator& from, const Iterator& to) const; // [from; to) if not from<=to throw(out_of_range)
-	void print() const; //
+	void print(string path) const; //
 };

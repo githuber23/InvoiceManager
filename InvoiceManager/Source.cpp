@@ -7,7 +7,8 @@ void main()
 {
 	Builder b;
 	b.ReadFile("file.txt");
-
+	b.Print("");
+	b.Print("result.txt");
 	//InvoiceContainer* ic = new InvoiceContainer();
 	//ic->push("123", "Item1", 1, 1, 1);
 	//ic->push("123", "Item2", 1, 1, 1);

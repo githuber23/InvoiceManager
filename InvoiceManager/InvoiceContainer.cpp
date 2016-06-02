@@ -172,11 +172,43 @@ void InvoiceContainer::print(const Iterator & from, const Iterator & to) const
 }
 
 
-void InvoiceContainer::print() const
+
+void InvoiceContainer::print(string path) const
 {
-	print(begin(), end());
-	cout << endl;
+	double totalCost = 0;
+	for (Iterator i = begin(); i != end(); ++i)
+	{
+		totalCost += (*i).GetCost();
+	}
+
+	if (path == "")
+	{
+		cout << HEADER << ": " << size() << ";" << endl;
+
+		print(begin(), end());
+		cout << TOTAL_COST << ": " << totalCost << "; ";
+		cout << TOTAL_COUNT_OF_ROWS << ": " << size() + 2 << "; " << endl;
+	}
+	else
+	{
+		ofstream stream(path);//создается поток для записи в файл
+		stream.clear();
+		stream << HEADER << ": " << size() << ";" << endl;
+
+		for (Iterator i = begin(); i != end(); ++i)
+		{
+			stream << NUMBER_OF_INVOICE << ": " << (*i).GetInvoiceNumber() << "; ";
+			stream << NAME_OF_INVOICE << ": " << (*i).GetName() << "; ";
+			stream << QUANTITY << ": " << (*i).GetQuantity() << "; ";
+			stream << PRICE << ": " << (*i).GetPrice() << "; ";
+			stream << COST << ": " << (*i).GetCost() << "; " << endl;
+		}
+		stream << TOTAL_COST << ": " << totalCost << "; ";
+		stream << TOTAL_COUNT_OF_ROWS << ": " << size()+2 << "; " << endl;
+		stream.close();
+	}
 }
+
 
 InvoiceContainer::Iterator::Iterator(InvoiceItem * current) :current(current) {}
 

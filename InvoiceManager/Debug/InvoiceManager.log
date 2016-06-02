@@ -7,6 +7,7 @@ c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanage
 c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(25): warning C4101: ia: неиспользованная локальная переменная
 c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
 c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(75): warning C4101: ia: неиспользованная локальная переменная
+c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(126): warning C4018: <: несоответствие типов со знаком и без знака
   Создание кода...
 c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(30): warning C4715: Builder::isInt: значение возвращается не при всех путях выполнения
 c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(79): warning C4715: Builder::isDouble: значение возвращается не при всех путях выполнения
