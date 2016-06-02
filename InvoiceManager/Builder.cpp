@@ -87,7 +87,7 @@ bool isDouble(string value, int countOfNumberAfterDot, bool fixed)
 	}
 }
 
-bool Builder::checkNote(string title, string value)
+bool Builder::checkNote(string title, string value)//ПРоверяем записи на соответсвие БНФ
 {
 	if (title == HEADER || title == TOTAL_COUNT_OF_ROWS)
 	{
@@ -112,17 +112,12 @@ bool Builder::checkNote(string title, string value)
 
 		return false;
 	}
-	else if (title == PRICE)
+	else if (title == PRICE || title == COST || title == TOTAL_COST)
 	{
+		if(isDouble(value, 2,true))
+			return true;
 
-	}
-	else if (title == COST)
-	{
-
-	}
-	else if (title == TOTAL_COST)
-	{
-
+		return false;
 	}
 	else
 	{
