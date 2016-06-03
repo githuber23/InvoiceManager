@@ -1,15 +1,15 @@
 ﻿  Source.cpp
   Lexer.cpp
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\lexer.cpp(10): warning C4101: divider: неиспользованная локальная переменная
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\lexer.cpp(10): warning C4101: 'divider': unreferenced local variable
   InvoiceService.cpp
   InvoiceContainer.cpp
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\invoicecontainer.cpp(261): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   Builder.cpp
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(25): warning C4101: ia: неиспользованная локальная переменная
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(37): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(75): warning C4101: ia: неиспользованная локальная переменная
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(126): warning C4018: <: несоответствие типов со знаком и без знака
-  Создание кода...
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(30): warning C4715: Builder::isInt: значение возвращается не при всех путях выполнения
-c:\users\user\documents\visual studio 2015\projects\invoicemanager\invoicemanager\builder.cpp(79): warning C4715: Builder::isDouble: значение возвращается не при всех путях выполнения
-  InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.exe
-  InvoiceManager.vcxproj -> C:\Users\USER\Documents\Visual Studio 2015\Projects\InvoiceManager\Debug\InvoiceManager.pdb (Partial PDB)
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(25): warning C4101: 'ia': unreferenced local variable
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(75): warning C4101: 'ia': unreferenced local variable
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(126): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(79): warning C4715: 'Builder::isDouble': not all control paths return a value
+c:\users\ivanv\desktop\invoicemanager\invoicemanager\builder.cpp(30): warning C4715: 'Builder::isInt': not all control paths return a value
+  InvoiceManager.vcxproj -> C:\Users\ivanv\Desktop\InvoiceManager\Debug\InvoiceManager.exe

@@ -175,6 +175,11 @@ void InvoiceContainer::print(const Iterator & from, const Iterator & to) const
 
 void InvoiceContainer::print(string path) const
 {
+	int countOfChecks = 0;
+	int count = 0;
+	double totalPrice = 0;
+	string name = "";
+
 	double totalCost = 0;
 	for (Iterator i = begin(); i != end(); ++i)
 	{
@@ -186,6 +191,9 @@ void InvoiceContainer::print(string path) const
 		cout << HEADER << ": " << size() << ";" << endl;
 
 		print(begin(), end());
+		getMostPopularGoods(&countOfChecks, &count, &totalPrice, &name);
+		cout << "Most popular good: " << name << "; Count of checks: " << countOfChecks << "; Quantity: " << count;
+		cout << "; Total price:" << totalPrice << endl;
 		cout << TOTAL_COST << ": " << totalCost << "; ";
 		cout << TOTAL_COUNT_OF_ROWS << ": " << size() + 2 << "; " << endl;
 	}
@@ -203,10 +211,68 @@ void InvoiceContainer::print(string path) const
 			stream << PRICE << ": " << (*i).GetPrice() << "; ";
 			stream << COST << ": " << (*i).GetCost() << "; " << endl;
 		}
+		getMostPopularGoods(&countOfChecks, &count, &totalPrice, &name);
+		stream << "Most popular good: " << name << "; Count of checks: " << countOfChecks << "; Quantity: " << count;
+		stream << "; Total price:" << totalPrice << endl;
 		stream << TOTAL_COST << ": " << totalCost << "; ";
 		stream << TOTAL_COUNT_OF_ROWS << ": " << size()+2 << "; " << endl;
 		stream.close();
 	}
+}
+
+void InvoiceContainer::push(string name)
+{
+	push("0000000000000", name, 1, 1, 1);
+}
+
+bool InvoiceContainer::contains(InvoiceItem item)
+{
+	for (Iterator i = begin(); i != end(); ++i)
+	{
+		if ((*i).GetName() == item.GetName())
+			return true;
+	}
+	
+	return false;
+}
+
+void InvoiceContainer::getMostPopularGoods(int* countOfChecks, int* count, double* totalPrice, string* name) const
+{
+	InvoiceContainer* withoutRepeats = new InvoiceContainer();
+	for (Iterator i = begin(); i != end(); ++i)
+	{
+		if (!withoutRepeats->contains(*i))
+		{
+			withoutRepeats->push((*i).GetName());
+		}
+	}
+
+
+	for (Iterator i = withoutRepeats->begin(); i != withoutRepeats->end(); ++i)
+	{
+		int currentCountOfChecks = 0;
+		int currentCount = 0;
+		double currentTotalPrice = 0;
+		for (Iterator j = begin(); j != end(); ++j)
+		{
+			if ((*i).GetName() == (*j).GetName())
+			{
+				currentCountOfChecks += 1;
+				currentCount += (*j).GetQuantity();
+				currentTotalPrice += (*j).GetPrice();
+			}
+		}
+
+		if (*countOfChecks < currentCountOfChecks)
+		{
+			*countOfChecks = currentCountOfChecks;
+			*count = currentCount;
+			*totalPrice = currentTotalPrice;
+			*name = (*i).GetName();
+		}
+	}
+
+	
 }
 
 

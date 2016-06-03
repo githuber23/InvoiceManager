@@ -1,5 +1,7 @@
-Total count of cheks: 3;
+Total count of cheks: 4;
+Number: 1231231231231; Name: a00000sd; Quantity of goods: 0; Price of product: 0; Cost of product: 0; 
 Number: 1231231231231; Name: a00000sd; Quantity of goods: 0; Price of product: 0; Cost of product: 0; 
 Number: 1231231231231; Name: a11111sd; Quantity of goods: 0; Price of product: 0; Cost of product: 0; 
 Number: 1231231231231; Name: asssadsd; Quantity of goods: 0; Price of product: 0; Cost of product: 0; 
-Total cost: 0; Total count of rows: 5; 
+Most popular good: a00000sd; Count of checks: 2; Quantity: 0; Total price:0
+Total cost: 0; Total count of rows: 6; 

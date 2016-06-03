@@ -2,4 +2,5 @@ Total count of cheks: 3;
 Number: 1231231231231; Name: asssadsd; Quantity of goods: 0.00; Price of product: 0.00; Cost of product: 0.00;
 Number: 1231231231231; Name: a11111sd; Quantity of goods: 0.00; Price of product: 0.00; Cost of product: 0.00;                            
 Number: 1231231231231; Name: a00000sd; Quantity of goods: 0.00; Price of product: 0.00; Cost of product: 0.00;
+Number: 1231231231231; Name: a00000sd; Quantity of goods: 0.00; Price of product: 0.00; Cost of product: 0.00;
 Total cost: 100.00; Total count of rows: 4;

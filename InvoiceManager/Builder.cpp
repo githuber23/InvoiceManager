@@ -142,7 +142,6 @@ Builder::Builder()
 
 void Builder::Print(string path)
 {
-
 		invoiceContainer->print(path);
 }
 
